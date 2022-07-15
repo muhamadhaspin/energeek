@@ -26,6 +26,6 @@ Route::group(
     ],
     function () {
         Route::get('/', [Controller::class, 'index']);
-        Route::post('/', [Controller::class, 'sotre']);
+        Route::post('/', [Controller::class, 'store']);
     }
 );

@@ -24,6 +24,7 @@ class EnergeekController extends Controller
 
     public function store(Request $request)
     {
+        return $request;
         $validator = Validator::make($request->all(), [
             'job' => 'required|exists:jobs,id',
             'phone' => 'required|numeric|unique:candidates,phone',
