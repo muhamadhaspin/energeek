@@ -45,8 +45,11 @@ class EnergeekController extends Controller
                 'success' => 'Candidate created successfully'
             ], 200);
 
-            foreach($request->skills as $skill) {
-                $candidate->skills()->attach($skill);
+            foreach ($request->skills as $skill) {
+                SkillSets::create([
+                    'candidate_id' => $candidate->id,
+                    'skill_id' => $skill
+                ]);
             }
         }
     }
