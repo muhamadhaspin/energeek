@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Jobs;
 use App\Models\Skills;
+use App\Models\SkillSets;
 use App\Models\Candidates;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
@@ -28,7 +29,7 @@ class EnergeekController extends Controller
             'phone' => 'required|numeric|unique:candidates,phone',
             'email' => 'required|string|email|unique:candidates,email',
             'birthdate' => 'nullable|date',
-            'skills' => 'required|string|exists:skills,name',
+            'skills' => 'required|string|exists:skills,id'
         ]);
 
         if ($validator->fails()) {
@@ -43,6 +44,10 @@ class EnergeekController extends Controller
             return response()->json([
                 'success' => 'Candidate created successfully'
             ], 200);
+
+            foreach($request->skills as $skill) {
+                $candidate->skills()->attach($skill);
+            }
         }
     }
 }

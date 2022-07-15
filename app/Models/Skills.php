@@ -10,4 +10,9 @@ class Skills extends Model
     use HasFactory;
 
     protected $guarded = [];
+
+    public function skillSets()
+    {
+        return $this->hasMany(SkillSets::class, 'skill_id');
+    }
 }
