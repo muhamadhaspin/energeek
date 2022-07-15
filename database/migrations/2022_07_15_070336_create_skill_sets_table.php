@@ -18,6 +18,8 @@ class CreateSkillSetsTable extends Migration
 
             $table->foreignId('candidate_id')->constrained('candidates');
             $table->foreignId('skill_id')->constrained('skills');
+
+            $table->timestamps();
         });
     }
 

@@ -29,7 +29,7 @@ class EnergeekController extends Controller
             'phone' => 'required|numeric|unique:candidates,phone',
             'email' => 'required|string|email|unique:candidates,email',
             'birthdate' => 'nullable|date',
-            'skills' => 'required|string|exists:skills,id'
+            'skills' => 'required|array|exists:skills,id'
         ]);
 
         if ($validator->fails()) {
@@ -38,19 +38,23 @@ class EnergeekController extends Controller
             ], 400);
         }
 
-        $candidate = Candidates::create($request->except('birthdate', 'skills'));
+        $candidate = Candidates::create([
+            'job_id' => $request->job,
+            'email' => $request->email,
+            'phone' => $request->phone
+        ]);
 
         if ($candidate) {
-            return response()->json([
-                'success' => 'Candidate created successfully'
-            ], 200);
-
             foreach ($request->skills as $skill) {
                 SkillSets::create([
                     'candidate_id' => $candidate->id,
                     'skill_id' => $skill
                 ]);
             }
+
+            return response()->json([
+                'success' => 'Candidate created successfully'
+            ], 200);
         }
     }
 }
