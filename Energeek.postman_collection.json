@@ -1,0 +1,266 @@
+{
+	"info": {
+		"_postman_id": "acffdeed-22a3-488c-a810-70e513f584c4",
+		"name": "Energeek",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "18752660"
+	},
+	"item": [
+		{
+			"name": "Get Skills and Jobs",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/energeek",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"energeek"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Succeess",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/energeek",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"energeek"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Host",
+							"value": "127.0.0.1:8000"
+						},
+						{
+							"key": "Date",
+							"value": "Fri, 15 Jul 2022 08:31:14 GMT"
+						},
+						{
+							"key": "Date",
+							"value": "Fri, 15 Jul 2022 08:31:14 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "close"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "PHP/7.4.19"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-cache, private"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "X-RateLimit-Limit",
+							"value": "60"
+						},
+						{
+							"key": "X-RateLimit-Remaining",
+							"value": "59"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"jobs\": [\n        {\n            \"id\": 1,\n            \"name\": \"Frontend Web Programmer\",\n            \"created_by\": 0,\n            \"updated_by\": 0,\n            \"deleted_by\": 0,\n            \"created_at\": null,\n            \"updated_at\": null,\n            \"deleted_at\": null\n        },\n        {\n            \"id\": 2,\n            \"name\": \"Fullstack Web Programmer\",\n            \"created_by\": 0,\n            \"updated_by\": 0,\n            \"deleted_by\": 0,\n            \"created_at\": null,\n            \"updated_at\": null,\n            \"deleted_at\": null\n        },\n        {\n            \"id\": 3,\n            \"name\": \"Quality Control\",\n            \"created_by\": 0,\n            \"updated_by\": 0,\n            \"deleted_by\": 0,\n            \"created_at\": null,\n            \"updated_at\": null,\n            \"deleted_at\": null\n        }\n    ],\n    \"skills\": [\n        {\n            \"id\": 1,\n            \"name\": \"PHP\",\n            \"created_by\": 0,\n            \"updated_by\": 0,\n            \"deleted_by\": 0,\n            \"created_at\": null,\n            \"updated_at\": null,\n            \"deleted_at\": null\n        },\n        {\n            \"id\": 2,\n            \"name\": \"PostgreSQL\",\n            \"created_by\": 0,\n            \"updated_by\": 0,\n            \"deleted_by\": 0,\n            \"created_at\": null,\n            \"updated_at\": null,\n            \"deleted_at\": null\n        },\n        {\n            \"id\": 3,\n            \"name\": \"API (JSON,REST)\",\n            \"created_by\": 0,\n            \"updated_by\": 0,\n            \"deleted_by\": 0,\n            \"created_at\": null,\n            \"updated_at\": null,\n            \"deleted_at\": null\n        },\n        {\n            \"id\": 4,\n            \"name\": \"Version Control System (Gitlab,Github)\",\n            \"created_by\": 0,\n            \"updated_by\": 0,\n            \"deleted_by\": 0,\n            \"created_at\": null,\n            \"updated_at\": null,\n            \"deleted_at\": null\n        }\n    ]\n}"
+				}
+			]
+		},
+		{
+			"name": "Create Candidate",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "job",
+							"value": "1",
+							"type": "text"
+						},
+						{
+							"key": "phone",
+							"value": "0823",
+							"type": "text"
+						},
+						{
+							"key": "email",
+							"value": "test@gmail.com",
+							"type": "text"
+						},
+						{
+							"key": "birthdate",
+							"value": "2000-06-06",
+							"type": "text"
+						},
+						{
+							"key": "skills[]",
+							"value": "1",
+							"type": "text"
+						},
+						{
+							"key": "skills[]",
+							"value": "2",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/energeek",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"energeek"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Success",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "job",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "phone",
+									"value": "0823",
+									"type": "text"
+								},
+								{
+									"key": "email",
+									"value": "test@gmail.com",
+									"type": "text"
+								},
+								{
+									"key": "birthdate",
+									"value": "2000-06-06",
+									"type": "text"
+								},
+								{
+									"key": "skills[]",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "skills[]",
+									"value": "2",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/energeek",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"energeek"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Host",
+							"value": "127.0.0.1:8000"
+						},
+						{
+							"key": "Date",
+							"value": "Fri, 15 Jul 2022 08:42:47 GMT"
+						},
+						{
+							"key": "Date",
+							"value": "Fri, 15 Jul 2022 08:42:47 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "close"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "PHP/7.4.19"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-cache, private"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "X-RateLimit-Limit",
+							"value": "60"
+						},
+						{
+							"key": "X-RateLimit-Remaining",
+							"value": "59"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"success\": \"Candidate created successfully\"\n}"
+				}
+			]
+		}
+	]
+}
