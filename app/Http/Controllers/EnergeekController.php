@@ -7,6 +7,7 @@ use App\Models\Skills;
 use App\Models\SkillSets;
 use App\Models\Candidates;
 use Illuminate\Http\Request;
+use Illuminate\Validation\Rule;
 use Illuminate\Support\Facades\Validator;
 
 class EnergeekController extends Controller
@@ -45,7 +46,8 @@ class EnergeekController extends Controller
         ]);
 
         if ($candidate) {
-            foreach ($request->skills as $skill) {
+            $skills = array_unique($request->skills);
+            foreach ($skills as $skill) {
                 SkillSets::create([
                     'candidate_id' => $candidate->id,
                     'skill_id' => $skill
