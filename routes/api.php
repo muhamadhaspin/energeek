@@ -20,5 +20,12 @@ use App\Http\Controllers\EnergeekController as Controller;
 // });
 
 
-Route::get('/', [Controller::class, 'index']);
-Route::post('/', [Controller::class, 'sotre']);
+Route::group(
+    [
+        'prefix' => 'energeek',
+    ],
+    function () {
+        Route::get('/', [Controller::class, 'index']);
+        Route::post('/', [Controller::class, 'sotre']);
+    }
+);
